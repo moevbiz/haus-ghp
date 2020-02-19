@@ -1,1 +1,1 @@
-haus wien — september 21—27, 2020
+<img src="./house.svg" width="200px"/>
