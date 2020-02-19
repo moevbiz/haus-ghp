@@ -1,0 +1,138 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* mix-blend-mode: difference; */
+
+input[type=submit]:before { 
+	content:"";
+	position:fixed;
+    top:0; 
+    left: 0;
+	z-index:-10;
+    width:100%; 
+    height: 100%;
+    background: #000;
+    opacity: 0;
+    transition: opacity .5s linear;
+}
+
+body {
+    font-size: 20px;
+}
+
+hr {
+    border: none;
+    border-top: 1px dashed;
+}
+
+.wrapper {
+    text-align: center;
+    width: auto;
+    height: auto;
+    /* position: absolute; */
+    /* width: 100%; */
+    /* top: 50%; */
+    /* left: 0; */
+    /* transform: translate(0, -50%); */
+    margin-top: 15vh;
+}
+
+.stretch {
+    display: inline-block;
+    transform: scaleX(4);
+    margin-left: 1.4em;
+    margin-right: 1.4em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+img.house {
+    width: 220px;
+}
+
+#house {
+    width: 220px;
+    cursor: pointer;
+}
+
+/* Form reset */
+
+input,
+label,
+select,
+button,
+textarea
+{
+	margin:0;
+	border:none;
+	padding:5px;
+	display:inline-block;
+	vertical-align:middle;
+	white-space:normal;
+	background:none;
+	line-height:1;
+	font: inherit;
+}
+
+/* Box Sizing Reset
+-----------------------------------------------*/
+
+/* All of our custom controls should be what we expect them to be */
+input,
+textarea
+{
+	-webkit-box-sizing:content-box;
+	-moz-box-sizing:content-box;
+	box-sizing:content-box;
+}
+
+/* These elements are usually rendered a certain way by the browser */
+button,
+input[type=reset],
+input[type=button],
+input[type=submit],
+input[type=checkbox],
+input[type=radio],
+select
+{
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+/* Buttons
+-----------------------------------------------*/
+
+button,
+input[type="reset"],
+input[type="button"],
+input[type="submit"]
+{
+	/* Fix IE7 display bug */
+	overflow:visible;
+	width:auto;
+}
+
+/* IE8 and FF freak out if this rule is within another selector */
+::-webkit-file-upload-button
+{	
+	padding:0;
+	border:0;
+	background:none;
+}
+
+/* form style */
+
+input[type="submit"] {
+    border: none;
+    cursor: pointer;
+}
+
+input[type="email"] {
+    border: 1px solid;
+}
