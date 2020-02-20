@@ -1,1 +1,1 @@
-<img src="./house.svg" width="200px"/>
+<img src="./haus_color.png" width="200px"/>
