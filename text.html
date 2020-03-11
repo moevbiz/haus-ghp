@@ -8,11 +8,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" async defer></script>
+  <style>
+      body {
+          padding: 0;
+          margin: 0;
+          max-width: 500px;
+      }
+      p {
+          padding: 0;
+          margin: 0;
+      }
+      #text_container {
+          width: 100vw;
+          height: 100vw;
+          max-width: 500px;
+          max-height: 500px;
+          border-bottom: 1px dotted grey;
+          border-right: 1px dotted grey;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+      #text {
+          outline: none;
+      }
+      #text:focus {
+          outline: none;
+      }
+  </style>
 </head>
 
 <body>
-    <div class="text_container">
-        <p contenteditable="true" style="text-align: center; line-height: 1.4em;">Change this text…</p>
+    <div id="text_container">
+        <p id="text" contenteditable="true" style="text-align: center; line-height: 1.4em; font-size: 30px">Change this text…</p>
+    </div>
+    <div style="width: 100%; text-align: center;">
+        <input 
+        id="font-size" 
+        type="range" 
+        min="12" 
+        max="72" 
+        value="30"
+        style="width: 80%; margin: 20px; box-sizing: border-box;"
+        >
+        <button class="fontStyle" onclick="document.execCommand('italic',false,null);" title="Italicize Highlighted Text"><i>Italic</i>
+        </button>
     </div>
 </body>
+<script>
+    var slider = document.getElementById('font-size');
+    var container = document.getElementById('text_container');
+    var text = document.getElementById('text');
+
+    slider.addEventListener('input', function() {
+        var size = slider.value;
+        var text = document.getElementById('text');
+        text.style.fontSize = size + "px";
+    });
+
+    container.addEventListener('click', function() {
+        text.focus();
+    })
+</script>
 </html>
