@@ -44,7 +44,7 @@ make.addEventListener('click', function() {
         img.src = dataUrl;
         img.className="img";
         img.dataset.generatedAt = Date.now();
-        img.dataset.slug = urlSlug(striptags(text.innerHTML));
+        img.dataset.slug = urlSlug(striptags(text.innerText));
         img.id="image";
 
         container.style.display='none';
@@ -77,7 +77,7 @@ save.addEventListener('click', function() {
 })
 
 copy.addEventListener('click', function() {
-    copyTextToClipboard(text.innerHTML);
+    copyTextToClipboard(striptags(text.innerText));
 });
 
 function fallbackCopyTextToClipboard(text) {
