@@ -826,4 +826,11 @@ backBtn.addEventListener('click', function() {
     document.getElementById('tool_container').style.display="block";
     this.parentElement.style.display="none";
 })
+
+var app = new Vue({ 
+    el: '#app',
+    data: {
+        message: 'Hello Vue!'
+    }
+});
 },{"dom-to-image":1}]},{},[2]);
