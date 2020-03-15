@@ -18,6 +18,7 @@
   },
   "homepage": "https://haus.wien",
   "dependencies": {
-    "dom-to-image": "^2.6.0"
+    "dom-to-image": "^2.6.0",
+    "slugify": "^1.4.0"
   }
 }

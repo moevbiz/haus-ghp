@@ -62,13 +62,19 @@
         .flex > * { 
             flex: 1;
         }
+
+        [contenteditable=true]:empty:before{
+            content:attr(data-placeholder);
+            color:grey;
+            font-style:italic;
+        }
     </style>
 </head>
 
 <body>
     <div class="border" id="frame">
         <div id="text_container">
-            <p id="text" contenteditable="true" style="text-align: center; line-height: 1.4em; font-size: 30px">Change this text…</p>
+            <p id="text" contenteditable="true" data-placeholder="Write something…" style="text-align: center; line-height: 1.4em; font-size: 30px">Change this text…</p>
         </div>
     </div>
     <div style="width: 100%; text-align: center;" id="tool_container">
