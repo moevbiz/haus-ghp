@@ -4,7 +4,8 @@ var slider = document.getElementById('font-size');
 var frame = document.getElementById('frame');
 var container = document.getElementById('text_container');
 var text = document.getElementById('text');
-var saveBtn = document.getElementById('save');
+var make = document.getElementById('make');
+var save = document.getElementById('save');
 var backBtn = document.getElementById('revert');
 
 slider.addEventListener('input', function() {
@@ -17,7 +18,7 @@ container.addEventListener('click', function() {
     text.focus();
 })
 
-save.addEventListener('click', function() {
+make.addEventListener('click', function() {
     var node = container;
     var scale = 750 / node.offsetWidth;
     domtoimage.toPng(node, {
@@ -36,11 +37,13 @@ save.addEventListener('click', function() {
         var img = new Image();
         img.src = dataUrl;
         img.className="img";
+        img.id="image";
         container.style.display='none';
         document.getElementById('tool_container').style.display="none";
         frame.appendChild(img);
         frame.dataset.content="img";
-        backBtn.parentElement.style.display="block";
+        document.getElementById('generated').style.display="flex";
+
     })
     .catch(function (error) {
         console.error('oops, something went wrong!', error);
@@ -52,5 +55,13 @@ backBtn.addEventListener('click', function() {
     frame.dataset.content="edit";
     container.style.display='flex';
     document.getElementById('tool_container').style.display="block";
-    this.parentElement.style.display="none";
+    document.getElementById('generated').style.display="none";
+})
+
+save.addEventListener('click', function() {
+    var link = document.createElement('a');
+    link.download = 'haus.png';
+    link.href = document.getElementById('image').src;
+    link.click();
+    link.remove();
 })

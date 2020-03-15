@@ -54,13 +54,18 @@
             from { opacity: 0; }
             to   { opacity: 1; }
         }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex > * { 
+            flex: 1;
+        }
     </style>
 </head>
 
 <body>
-    <div id="app">
-        {{ message }}
-    </div>
     <div class="border" id="frame">
         <div id="text_container">
             <p id="text" contenteditable="true" style="text-align: center; line-height: 1.4em; font-size: 30px">Change this text…</p>
@@ -79,12 +84,19 @@
             <button class="fontStyle" onclick="document.execCommand('italic',false,null);" title="Italicize Highlighted Text"><i>Italic</i>
             </button>
         </div>
-        <div class="border padded">
-            <button id="save">Generate Image…</button>
+        <div class="flex">
+            <button id="make" class="border padded">
+                Generate Image…
+            </button>
         </div>
     </div>
-    <div class="border padded" style="display: none; text-align: center;">
-        <button id="revert">Make another</button>
+    <div class="flex" id="generated" style="display:none">
+        <button id="save" class="border padded" style="text-align: center;">
+            Save image
+        </button>
+        <button id="revert" class="border padded" style="text-align: center;">
+            Make another
+        </button>
     </div>
 </body>
 </html>
