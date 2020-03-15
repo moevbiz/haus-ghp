@@ -1,0 +1,25 @@
+{
+  "name": "haus",
+  "version": "1.0.0",
+  "description": "🏡",
+  "main": "index.html",
+  "scripts": {
+    "test": "test",
+    "build": "browserify scripts.js -o bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moevbiz/haus.git"
+  },
+  "author": "moev.biz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moevbiz/haus/issues"
+  },
+  "homepage": "https://haus.wien",
+  "dependencies": {
+    "dom-to-image": "^2.6.0",
+    "file-saver": "^2.0.2",
+    "vue": "^2.6.11"
+  }
+}
