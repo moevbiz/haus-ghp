@@ -19,6 +19,7 @@
   "homepage": "https://haus.wien",
   "dependencies": {
     "dom-to-image": "^2.6.0",
-    "slugify": "^1.4.0"
+    "striptags": "^3.1.1",
+    "url-slug": "^2.3.0"
   }
 }
