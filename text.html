@@ -105,8 +105,20 @@
     })
 
     save.addEventListener('click', function() {
-        domtoimage.toSvg(container)
+        var node = container;
+        var scale = 750 / node.offsetWidth;
+        domtoimage.toPng(node, {
+            height: node.offsetHeight * scale,
+            width: node.offsetWidth * scale,
+            style: {
+            transform: "scale(" + scale + ")",
+            transformOrigin: "top left",
+            width: node.offsetWidth + "px",
+            height: node.offsetHeight + "px"
+            }
+        })
         .then(function (dataUrl) {
+            console.log(container.clientWidth);
             var img = new Image();
             img.src = dataUrl;
             img.className="img";
