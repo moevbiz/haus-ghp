@@ -74,7 +74,10 @@
 <body>
     <div class="border" id="frame">
         <div id="text_container">
-            <p id="text" contenteditable="true" data-placeholder="Write something…" style="text-align: center; line-height: 1.4em; font-size: 30px">Change this text…</p>
+            <p id="text" 
+            contenteditable="true" 
+            data-placeholder="" 
+            style="text-align: center; line-height: 1.4em; font-size: 30px"></p>
         </div>
     </div>
     <div style="width: 100%; text-align: center;" id="tool_container">
@@ -87,8 +90,8 @@
             value="30"
             style="width: 80%; margin: 20px; box-sizing: border-box;"
             >
-            <button class="fontStyle" onclick="document.execCommand('italic',false,null);" title="Italicize Highlighted Text"><i>Italic</i>
-            </button>
+            <!-- <button class="fontStyle" onclick="document.execCommand('italic',false,null);" title="Italicize Highlighted Text"><i>Italic</i>
+            </button> -->
         </div>
         <div class="flex">
             <button id="make" class="border padded">
@@ -112,4 +115,7 @@
         </div>
     </div>
 </body>
+<script>
+    document.getElementById('text').dataset.placeholder = 'Who lives in your house?'
+</script>
 </html>

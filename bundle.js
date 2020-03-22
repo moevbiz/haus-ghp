@@ -2519,9 +2519,23 @@ container.addEventListener('click', function(e) {
     }
 })
 
+let urlParams = new URLSearchParams(window.location.search);
+let params = urlParams.has('make') ? urlParams.get('make') : false
+
+if (params == 'true') {
+    text.innerText = urlParams.get('string')
+    text.style.fontSize = urlParams.get('size') + "px"
+    generate()
+}
+
 make.addEventListener('click', function() {
+    generate()
+})
+
+function generate() {
     var node = container;
     var scale = 750 / node.offsetWidth;
+
     domtoimage.toPng(node, {
         height: node.offsetHeight * scale,
         width: node.offsetWidth * scale,
@@ -2549,11 +2563,22 @@ make.addEventListener('click', function() {
         frame.dataset.content="img";
         document.getElementById('generated').style.display="block";
 
+        var generatedSize = parseInt(text.style.fontSize, 10)
+        var generatedString = text.innerText
+        var generatedQuestion = text.dataset.placeholder
+
+        history.replaceState(
+            'generated', 
+            'Haus', 
+            `?make=true&size=${generatedSize}&string=${generatedString}&q=${generatedQuestion}
+            `
+        )
+
     })
     .catch(function (error) {
         console.error('oops, something went wrong!', error);
     });
-})
+}
 
 backBtn.addEventListener('click', function() {
     frame.removeChild(frame.getElementsByTagName('img')[0]);
@@ -2561,6 +2586,8 @@ backBtn.addEventListener('click', function() {
     container.style.display='flex';
     document.getElementById('tool_container').style.display="block";
     document.getElementById('generated').style.display="none";
+
+    history.replaceState('new', 'Haus', `./text.html`)
 })
 
 save.addEventListener('click', function() {
