@@ -2568,7 +2568,7 @@ function generate() {
         var generatedQuestion = text.dataset.placeholder
 
         history.replaceState(
-            'generated', 
+            {info: 'generated'}, 
             'Haus', 
             `?make=true&size=${generatedSize}&string=${generatedString}&q=${generatedQuestion}
             `
@@ -2587,7 +2587,7 @@ backBtn.addEventListener('click', function() {
     document.getElementById('tool_container').style.display="block";
     document.getElementById('generated').style.display="none";
 
-    history.replaceState('new', 'Haus', `./text.html`)
+    history.replaceState({info: 'new'}, 'Haus', `./text`)
 })
 
 save.addEventListener('click', function() {
