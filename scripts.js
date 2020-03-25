@@ -10,6 +10,14 @@ var make = document.getElementById('make');
 var save = document.getElementById('save');
 var backBtn = document.getElementById('revert');
 
+var placeholders = [
+    'Who lives in your house?',
+    'What is community to you?',
+    'Who do you trust?',
+    'What does community sound like?',
+    'Who do you miss?'
+]
+
 slider.addEventListener('input', function() {
     var size = slider.value;
     var text = document.getElementById('text');
@@ -29,7 +37,12 @@ let params = urlParams.has('make') ? urlParams.get('make') : false
 if (params == 'true') {
     text.innerText = urlParams.get('string')
     text.style.fontSize = urlParams.get('size') + "px"
+    text.dataset.placeholder = placeholders[urlParams.get('q')]
     generate()
+}
+else {
+    var p = placeholders[Math.floor(Math.random() * placeholders.length)]
+    text.dataset.placeholder = p
 }
 
 make.addEventListener('click', function() {
@@ -68,8 +81,10 @@ function generate() {
         document.getElementById('generated').style.display="block";
 
         var generatedSize = parseInt(text.style.fontSize, 10)
-        var generatedString = text.innerText
-        var generatedQuestion = text.dataset.placeholder
+        var generatedString = encodeURIComponent(text.innerText)
+        var generatedQuestion = placeholders.findIndex(function(placeholder) {
+            return placeholder == text.dataset.placeholder;
+        })
 
         history.replaceState(
             {info: 'generated'}, 
