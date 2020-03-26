@@ -1,0 +1,3 @@
+[submodule "vendor/piklor.js"]
+	path = vendor/piklor.js
+	url = https://github.com/jillix/piklor.js.git

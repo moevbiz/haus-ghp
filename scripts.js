@@ -30,6 +30,7 @@ if (params == 'true') {
     text.innerText = urlParams.get('string')
     text.style.fontSize = urlParams.get('size') + "px"
     generate()
+} else {
 }
 
 make.addEventListener('click', function() {
@@ -48,7 +49,6 @@ function generate() {
             transformOrigin: "top left",
             width: node.offsetWidth + "px",
             height: node.offsetHeight + "px",
-            'background-color': 'white',
         }
     })
     .then(function (dataUrl) {
