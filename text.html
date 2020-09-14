@@ -65,7 +65,7 @@
 
         [contenteditable=true]:empty:before{
             content:attr(data-placeholder);
-            color:grey;
+            color: rgba(0,0,0,0.5);
             font-style:italic;
         }
 
@@ -115,5 +115,10 @@
     </div>
 </body>
 <script>
+    const randomHsl = () => `hsla(${Math.random() * 360}, 100%, 50%, 1)`
+    document.addEventListener('DOMContentLoaded', function() {
+        const textContainer = document.getElementById('text_container')
+        textContainer.style.backgroundColor = randomHsl()
+    })
 </script>
 </html>
